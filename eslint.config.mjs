@@ -1,6 +1,5 @@
 import { fixupConfigRules, fixupPluginRules } from "@eslint/compat";
 import react from "eslint-plugin-react";
-import prettier from "eslint-plugin-prettier";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import reactHooks from "eslint-plugin-react-hooks";
 import tsParser from "@typescript-eslint/parser";
@@ -24,13 +23,11 @@ export default [
       "eslint:recommended",
       "plugin:@typescript-eslint/recommended",
       "plugin:react-hooks/recommended",
-      "plugin:prettier/recommended",
     )
   ),
   {
     plugins: {
       react,
-      prettier: fixupPluginRules(prettier),
       "@typescript-eslint": fixupPluginRules(typescriptEslint),
       "react-hooks": fixupPluginRules(reactHooks),
       "@cspell": cspellPlugin,
@@ -46,13 +43,6 @@ export default [
 
     rules: {
       '@cspell/spellchecker': ['warn', {}],
-      "import/no-cycle": [
-        "error",
-        {
-          maxDepth: 10,
-          ignoreExternal: true,
-        },
-      ],
 
       "no-restricted-imports": "off",
 
